@@ -14097,7 +14097,7 @@ function parse(content, options) {
     var match = program$1(false, undefined, Caml_option.some(undefined), content);
     translation_errors.contents = /* [] */0;
     var array_of_list = function (fn, list) {
-      return Curry._1(array, $$Array.of_list(List.map(fn, list)));
+      return array($$Array.of_list(List.map(fn, list)));
     };
     var option = function (f, param) {
       if (param !== undefined) {
@@ -14107,14 +14107,14 @@ function parse(content, options) {
       }
     };
     var position = function (p) {
-      return Curry._1(obj, [
+      return obj([
                   /* tuple */[
                     "line",
-                    Curry._1(number$1, p.line)
+                    number$1(p.line)
                   ],
                   /* tuple */[
                     "column",
-                    Curry._1(number$1, p.column)
+                    number$1(p.column)
                   ]
                 ]);
     };
@@ -14123,11 +14123,11 @@ function parse(content, options) {
       var source;
       if (match !== undefined) {
         var match$1 = match;
-        source = typeof match$1 === "number" ? Curry._1(string, "(global)") : Curry._1(string, match$1[0]);
+        source = typeof match$1 === "number" ? string("(global)") : string(match$1[0]);
       } else {
         source = $$null;
       }
-      return Curry._1(obj, [
+      return obj([
                   /* tuple */[
                     "source",
                     source
@@ -14143,16 +14143,16 @@ function parse(content, options) {
                 ]);
     };
     var range = function ($$location) {
-      return Curry._1(array, [
-                  Curry._1(number$1, $$location.start.offset),
-                  Curry._1(number$1, $$location._end.offset)
+      return array([
+                  number$1($$location.start.offset),
+                  number$1($$location._end.offset)
                 ]);
     };
     var node = function (_type, $$location, props) {
-      return Curry._1(obj, $$Array.append([
+      return obj($$Array.append([
                       /* tuple */[
                         "type",
-                        Curry._1(string, _type)
+                        string(_type)
                       ],
                       /* tuple */[
                         "loc",
@@ -14166,14 +14166,14 @@ function parse(content, options) {
     };
     var errors = function (l) {
       var error$2 = function (param) {
-        return Curry._1(obj, [
+        return obj([
                     /* tuple */[
                       "loc",
                       loc(param[0])
                     ],
                     /* tuple */[
                       "message",
-                      Curry._1(string, error(param[1]))
+                      string(error(param[1]))
                     ]
                   ]);
       };
@@ -14290,11 +14290,11 @@ function parse(content, options) {
               return node("StringLiteralTypeAnnotation", param$6[0], [
                           /* tuple */[
                             "value",
-                            Curry._1(string, s.value)
+                            string(s.value)
                           ],
                           /* tuple */[
                             "raw",
-                            Curry._1(string, s.raw)
+                            string(s.raw)
                           ]
                         ]);
           case /* NumberLiteral */10 :
@@ -14306,11 +14306,11 @@ function parse(content, options) {
               return node("NumberLiteralTypeAnnotation", param$7[0], [
                           /* tuple */[
                             "value",
-                            Curry._1(number$1, s$1.value)
+                            number$1(s$1.value)
                           ],
                           /* tuple */[
                             "raw",
-                            Curry._1(string, s$1.raw)
+                            string(s$1.raw)
                           ]
                         ]);
           case /* BooleanLiteral */11 :
@@ -14322,11 +14322,11 @@ function parse(content, options) {
               return node("BooleanLiteralTypeAnnotation", param$8[0], [
                           /* tuple */[
                             "value",
-                            Curry._1(bool, s$2.value)
+                            bool(s$2.value)
                           ],
                           /* tuple */[
                             "raw",
-                            Curry._1(string, s$2.raw)
+                            string(s$2.raw)
                           ]
                         ]);
           
@@ -14338,7 +14338,7 @@ function parse(content, options) {
       return node("Identifier", param[0], [
                   /* tuple */[
                     "name",
-                    Curry._1(string, id.name)
+                    string(id.name)
                   ],
                   /* tuple */[
                     "typeAnnotation",
@@ -14346,7 +14346,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "optional",
-                    Curry._1(bool, id.optional)
+                    bool(id.optional)
                   ]
                 ]);
     };
@@ -14432,13 +14432,13 @@ function parse(content, options) {
       } else {
         switch (value.tag | 0) {
           case /* String */0 :
-              value_ = Curry._1(string, value[0]);
+              value_ = string(value[0]);
               break;
           case /* Boolean */1 :
-              value_ = Curry._1(bool, value[0]);
+              value_ = bool(value[0]);
               break;
           case /* Number */2 :
-              value_ = Curry._1(number$1, value[0]);
+              value_ = number$1(value[0]);
               break;
           case /* RegExp */3 :
               var match = value[0];
@@ -14453,14 +14453,14 @@ function parse(content, options) {
         exit = 1;
       } else {
         var match$1 = value[0];
-        var regex = Curry._1(obj, [
+        var regex = obj([
               /* tuple */[
                 "pattern",
-                Curry._1(string, match$1.pattern)
+                string(match$1.pattern)
               ],
               /* tuple */[
                 "flags",
-                Curry._1(string, match$1.flags)
+                string(match$1.flags)
               ]
             ]);
         props = [
@@ -14470,7 +14470,7 @@ function parse(content, options) {
           ],
           /* tuple */[
             "raw",
-            Curry._1(string, raw)
+            string(raw)
           ],
           /* tuple */[
             "regex",
@@ -14486,7 +14486,7 @@ function parse(content, options) {
           ],
           /* tuple */[
             "raw",
-            Curry._1(string, raw)
+            string(raw)
           ]
         ];
       }
@@ -14496,15 +14496,15 @@ function parse(content, options) {
       var tp = param[1];
       var variance = function (param) {
         if (param) {
-          return Curry._1(string, "minus");
+          return string("minus");
         } else {
-          return Curry._1(string, "plus");
+          return string("plus");
         }
       };
       return node("TypeParameter", param[0], [
                   /* tuple */[
                     "name",
-                    Curry._1(string, tp.name)
+                    string(tp.name)
                   ],
                   /* tuple */[
                     "bound",
@@ -14609,7 +14609,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "lexical",
-                            Curry._1(bool, $$switch.lexical)
+                            bool($$switch.lexical)
                           ]
                         ]);
           case /* Return */9 :
@@ -14713,7 +14713,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "each",
-                            Curry._1(bool, forin.each)
+                            bool(forin.each)
                           ]
                         ]);
           case /* ForOf */16 :
@@ -14785,15 +14785,15 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "async",
-                            Curry._1(bool, fn.async)
+                            bool(fn.async)
                           ],
                           /* tuple */[
                             "generator",
-                            Curry._1(bool, fn.generator)
+                            bool(fn.generator)
                           ],
                           /* tuple */[
                             "expression",
-                            Curry._1(bool, fn.expression)
+                            bool(fn.expression)
                           ],
                           /* tuple */[
                             "returnType",
@@ -14880,7 +14880,7 @@ function parse(content, options) {
               id = match$8.tag ? literal(match$8[0]) : identifier(match$8[0]);
               var match$9 = m.kind;
               var tmp;
-              tmp = match$9.tag ? Curry._1(string, "ES") : Curry._1(string, "CommonJS");
+              tmp = match$9.tag ? string("ES") : string("CommonJS");
               return node("DeclareModule", loc, [
                           /* tuple */[
                             "id",
@@ -14933,7 +14933,7 @@ function parse(content, options) {
               return node("DeclareExportDeclaration", loc, [
                           /* tuple */[
                             "default",
-                            Curry._1(bool, $$export.default)
+                            bool($$export.default)
                           ],
                           /* tuple */[
                             "declaration",
@@ -14961,7 +14961,7 @@ function parse(content, options) {
               return node("ExportDeclaration", loc, [
                           /* tuple */[
                             "default",
-                            Curry._1(bool, $$export$1.default)
+                            bool($$export$1.default)
                           ],
                           /* tuple */[
                             "declaration",
@@ -14977,7 +14977,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "exportKind",
-                            Curry._1(string, $$export$1.exportKind ? "value" : "type")
+                            string($$export$1.exportKind ? "value" : "type")
                           ]
                         ]);
           case /* ImportDeclaration */29 :
@@ -15031,7 +15031,7 @@ function parse(content, options) {
               return node("ImportDeclaration", loc, [
                           /* tuple */[
                             "specifiers",
-                            Curry._1(array, $$Array.of_list(specifiers))
+                            array($$Array.of_list(specifiers))
                           ],
                           /* tuple */[
                             "source",
@@ -15039,7 +15039,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "importKind",
-                            Curry._1(string, import_kind)
+                            string(import_kind)
                           ]
                         ]);
           
@@ -15100,15 +15100,15 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "async",
-                            Curry._1(bool, arrow.async)
+                            bool(arrow.async)
                           ],
                           /* tuple */[
                             "generator",
-                            Curry._1(bool, arrow.generator)
+                            bool(arrow.generator)
                           ],
                           /* tuple */[
                             "expression",
-                            Curry._1(bool, arrow.expression)
+                            bool(arrow.expression)
                           ],
                           /* tuple */[
                             "returnType",
@@ -15167,11 +15167,11 @@ function parse(content, options) {
                 return node("UnaryExpression", loc, [
                             /* tuple */[
                               "operator",
-                              Curry._1(string, operator)
+                              string(operator)
                             ],
                             /* tuple */[
                               "prefix",
-                              Curry._1(bool, unary.prefix)
+                              bool(unary.prefix)
                             ],
                             /* tuple */[
                               "argument",
@@ -15255,7 +15255,7 @@ function parse(content, options) {
               return node("BinaryExpression", loc, [
                           /* tuple */[
                             "operator",
-                            Curry._1(string, operator$1)
+                            string(operator$1)
                           ],
                           /* tuple */[
                             "left",
@@ -15315,7 +15315,7 @@ function parse(content, options) {
               return node("AssignmentExpression", loc, [
                           /* tuple */[
                             "operator",
-                            Curry._1(string, operator$2)
+                            string(operator$2)
                           ],
                           /* tuple */[
                             "left",
@@ -15333,7 +15333,7 @@ function parse(content, options) {
               return node("UpdateExpression", loc, [
                           /* tuple */[
                             "operator",
-                            Curry._1(string, operator$3)
+                            string(operator$3)
                           ],
                           /* tuple */[
                             "argument",
@@ -15341,7 +15341,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "prefix",
-                            Curry._1(bool, update.prefix)
+                            bool(update.prefix)
                           ]
                         ]);
           case /* Logical */9 :
@@ -15351,7 +15351,7 @@ function parse(content, options) {
               return node("LogicalExpression", loc, [
                           /* tuple */[
                             "operator",
-                            Curry._1(string, operator$4)
+                            string(operator$4)
                           ],
                           /* tuple */[
                             "left",
@@ -15418,7 +15418,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "computed",
-                            Curry._1(bool, member.computed)
+                            bool(member.computed)
                           ]
                         ]);
           case /* Yield */14 :
@@ -15430,7 +15430,7 @@ function parse(content, options) {
                           ],
                           /* tuple */[
                             "delegate",
-                            Curry._1(bool, $$yield.delegate)
+                            bool($$yield.delegate)
                           ]
                         ]);
           case /* Comprehension */15 :
@@ -15571,7 +15571,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "static",
-                    Curry._1(bool, indexer.static)
+                    bool(indexer.static)
                   ]
                 ]);
     };
@@ -15604,11 +15604,11 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "optional",
-                    Curry._1(bool, prop.optional)
+                    bool(prop.optional)
                   ],
                   /* tuple */[
                     "static",
-                    Curry._1(bool, prop.static)
+                    bool(prop.static)
                   ]
                 ]);
     };
@@ -15621,7 +15621,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "static",
-                    Curry._1(bool, callProperty.static)
+                    bool(callProperty.static)
                   ]
                 ]);
     };
@@ -15644,7 +15644,7 @@ function parse(content, options) {
     var jsx_identifier = function (param) {
       return node("JSXIdentifier", param[0], [/* tuple */[
                     "name",
-                    Curry._1(string, param[1].name)
+                    string(param[1].name)
                   ]]);
     };
     var template_literal = function (param) {
@@ -15777,15 +15777,15 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "async",
-                    Curry._1(bool, _function.async)
+                    bool(_function.async)
                   ],
                   /* tuple */[
                     "generator",
-                    Curry._1(bool, _function.generator)
+                    bool(_function.generator)
                   ],
                   /* tuple */[
                     "expression",
-                    Curry._1(bool, _function.expression)
+                    bool(_function.expression)
                   ],
                   /* tuple */[
                     "returnType",
@@ -15805,14 +15805,14 @@ function parse(content, options) {
     };
     var template_element = function (param) {
       var element = param[1];
-      var value = Curry._1(obj, [
+      var value = obj([
             /* tuple */[
               "raw",
-              Curry._1(string, element.value.raw)
+              string(element.value.raw)
             ],
             /* tuple */[
               "cooked",
-              Curry._1(string, element.value.cooked)
+              string(element.value.cooked)
             ]
           ]);
       return node("TemplateElement", param[0], [
@@ -15822,7 +15822,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "tail",
-                    Curry._1(bool, element.tail)
+                    bool(element.tail)
                   ]
                 ]);
     };
@@ -15899,7 +15899,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "optional",
-                    Curry._1(bool, param$1.optional)
+                    bool(param$1.optional)
                   ]
                 ]);
     };
@@ -15947,11 +15947,11 @@ function parse(content, options) {
                     ],
                     /* tuple */[
                       "computed",
-                      Curry._1(bool, match$3[1])
+                      bool(match$3[1])
                     ],
                     /* tuple */[
                       "shorthand",
-                      Curry._1(bool, prop.shorthand)
+                      bool(prop.shorthand)
                     ]
                   ]);
       }
@@ -16009,11 +16009,11 @@ function parse(content, options) {
                     ],
                     /* tuple */[
                       "computed",
-                      Curry._1(bool, match$1[1])
+                      bool(match$1[1])
                     ],
                     /* tuple */[
                       "static",
-                      Curry._1(bool, prop.static)
+                      bool(prop.static)
                     ]
                   ]);
       } else {
@@ -16069,15 +16069,15 @@ function parse(content, options) {
                     ],
                     /* tuple */[
                       "kind",
-                      Curry._1(string, kind)
+                      string(kind)
                     ],
                     /* tuple */[
                       "static",
-                      Curry._1(bool, method_.static)
+                      bool(method_.static)
                     ],
                     /* tuple */[
                       "computed",
-                      Curry._1(bool, match$2[1])
+                      bool(match$2[1])
                     ],
                     /* tuple */[
                       "decorators",
@@ -16181,7 +16181,7 @@ function parse(content, options) {
       if (param !== undefined) {
         var match = param;
         if (match.tag) {
-          return Curry._1(array, [node("ExportBatchSpecifier", match[0], [/* tuple */[
+          return array([node("ExportBatchSpecifier", match[0], [/* tuple */[
                               "name",
                               option(identifier, match[1])
                             ]])]);
@@ -16189,7 +16189,7 @@ function parse(content, options) {
           return array_of_list(export_specifier, match[0]);
         }
       } else {
-        return Curry._1(array, []);
+        return array([]);
       }
     };
     var variable_declaration = function (param) {
@@ -16215,7 +16215,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "kind",
-                    Curry._1(string, kind)
+                    string(kind)
                   ]
                 ]);
     };
@@ -16233,7 +16233,7 @@ function parse(content, options) {
                 ]);
     };
     var let_assignment = function (assignment) {
-      return Curry._1(obj, [
+      return obj([
                   /* tuple */[
                     "id",
                     pattern(assignment.id)
@@ -16325,19 +16325,19 @@ function parse(content, options) {
                     ],
                     /* tuple */[
                       "kind",
-                      Curry._1(string, kind)
+                      string(kind)
                     ],
                     /* tuple */[
                       "method",
-                      Curry._1(bool, prop._method)
+                      bool(prop._method)
                     ],
                     /* tuple */[
                       "shorthand",
-                      Curry._1(bool, prop.shorthand)
+                      bool(prop.shorthand)
                     ],
                     /* tuple */[
                       "computed",
-                      Curry._1(bool, match$3[1])
+                      bool(match$3[1])
                     ]
                   ]);
       }
@@ -16366,7 +16366,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "each",
-                    Curry._1(bool, b.each)
+                    bool(b.each)
                   ]
                 ]);
     };
@@ -16408,7 +16408,7 @@ function parse(content, options) {
         ];
       return node(match[0], param[0], [/* tuple */[
                     "value",
-                    Curry._1(string, match[1])
+                    string(match[1])
                   ]]);
     };
     var jsx_closing = function (param) {
@@ -16440,11 +16440,11 @@ function parse(content, options) {
             return node("JSXText", param$1[0], [
                         /* tuple */[
                           "value",
-                          Curry._1(string, text.value)
+                          string(text.value)
                         ],
                         /* tuple */[
                           "raw",
-                          Curry._1(string, text.raw)
+                          string(text.raw)
                         ]
                       ]);
         
@@ -16463,7 +16463,7 @@ function parse(content, options) {
                   ],
                   /* tuple */[
                     "selfClosing",
-                    Curry._1(bool, opening.selfClosing)
+                    bool(opening.selfClosing)
                   ]
                 ]);
     };
