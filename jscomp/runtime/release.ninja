@@ -42,7 +42,7 @@ build runtime/caml_int64.cmj : cc_cmi runtime/caml_int64.ml | runtime/caml_built
 build runtime/caml_int64.cmi : cc runtime/caml_int64.mli | runtime/bs_stdlib_mini.cmi runtime/js.cmi runtime/js.cmj
 build runtime/caml_io.cmj : cc_cmi runtime/caml_io.ml | runtime/caml_io.cmi runtime/caml_string_extern.cmj runtime/caml_undefined_extern.cmj runtime/curry.cmj runtime/js.cmj runtime/js_internalRaw.cmj
 build runtime/caml_io.cmi : cc runtime/caml_io.mli | runtime/bs_stdlib_mini.cmi runtime/caml_undefined_extern.cmj runtime/js.cmi runtime/js.cmj
-build runtime/caml_lexer.cmj : cc_cmi runtime/caml_lexer.ml | runtime/caml_builtin_exceptions.cmj runtime/caml_lexer.cmi runtime/js_internalRaw.cmj
+build runtime/caml_lexer.cmj : cc_cmi runtime/caml_lexer.ml | runtime/caml_builtin_exceptions.cmj runtime/caml_lexer.cmi runtime/curry.cmj runtime/js_internalRaw.cmj
 build runtime/caml_lexer.cmi : cc runtime/caml_lexer.mli | runtime/bs_stdlib_mini.cmi runtime/js.cmi runtime/js.cmj
 build runtime/caml_md5.cmj : cc_cmi runtime/caml_md5.ml | runtime/caml_array_extern.cmj runtime/caml_char.cmj runtime/caml_int32_extern.cmj runtime/caml_md5.cmi runtime/caml_string_extern.cmj
 build runtime/caml_md5.cmi : cc runtime/caml_md5.mli | runtime/bs_stdlib_mini.cmi runtime/js.cmi runtime/js.cmj
